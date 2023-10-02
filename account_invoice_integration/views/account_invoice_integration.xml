@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Define uma visualização de formulário para o modelo account.invoice.integration -->
+        <record id="view_account_invoice_integration_form" model="ir.ui.view">
+            <field name="name">account.invoice.integration.form</field>
+            <field name="model">account.invoice.integration</field>
+            <field name="arch" type="xml">
+                <form string="Integração de Faturas com Sistema Externo">
+                    <group>
+                        <field name="invoice_id"/>
+                        <field name="external_system_id"/>
+                        <field name="status"/>
+                        <field name="response_message"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <!-- Define uma ação para abrir a visualização do modelo account.invoice.integration -->
+        <record id="action_account_invoice_integration" model="ir.actions.act_window">
+            <field name="name">Integração de Faturas com Sistema Externo</field>
+            <field name="res_model">account.invoice.integration</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Define um menu para acessar a ação -->
+        <menuitem id="menu_account_invoice_integration" name="Integração de Faturas com Sistema Externo" parent="account.menu_finance"/>
+        <menuitem id="menu_account_invoice_integration_action" name="Integração de Faturas com Sistema Externo" parent="menu_account_invoice_integration" action="action_account_invoice_integration"/>
+    </data>
+</odoo>
